@@ -59,19 +59,19 @@ html {
 }
 
 #stats {
-  text-align: center;
+    text-align: center;
 }
 
 .title {
-  font-size: 2em;
-  list-style: none;
-  display: inline;
+    font-size: 2em;
+    list-style: none;
+    display: inline;
 }
 
 #errors {
-  float: left;
+    float: left;
 }
 
 #wpm {
-  float: right;
+    float: right;
 }
