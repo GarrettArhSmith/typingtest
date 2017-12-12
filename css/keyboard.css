@@ -1,77 +1,64 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
+
+
 * {
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-    user-select: none;
-    /* Non-prefixed version, currently
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome and Opera */
 }
 
-ul {
-    padding: 0;
-}
 
+ul {
+  padding: 0;
+}
 #keyboard li {
-    margin: 2px 5px;
-    list-style: none;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    padding: 10px;
-    float: left;
-    height: 30px;
-    font-weight: bold;
-    color: rgb(117, 117, 117);
-    box-shadow: 1px 1px 0px 0px rgba(150, 150, 150, 1);
+  margin: 2px 5px;
+  list-style: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  float: left;
+  height: 30px;
+
+  box-shadow: 1px 1px 0px 0px rgba(150,150,150,1);
 }
 
 #container {
-    width: 880px;
-    height: 290px;
-    margin: 0 auto;
-    padding: 0;
+  width: 880px;
+  height: 290px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .symbol {
-    width: 30px;
+  width: 30px;
 }
-
 .letter {
-    width: 30px;
+  width: 30px;
 }
-
 .capslock, .tab, .left-shift {
-    clear: left;
+        clear: left;
 }
-
-.tab, .delete {
-    width: 70px;
-}
-
-.capslock {
-    width: 81px;
-}
-
-.return {
-    width: 79px;
-}
-
-.left-shift {
-    width: 103px;
-}
-
-.right-shift {
-    width: 117px;
-}
-
+#keyboard .tab, #keyboard .delete {
+            width: 70px;
+            }
+            #keyboard .capslock {
+            width: 81px;
+            }
+            #keyboard .return {
+            width: 79px;
+            }
+            #keyboard .left-shift {
+            width: 103px;
+            }
+            #keyboard .right-shift {
+            width: 117px;
+          }
 .space {
-    clear: left;
-    width: 850px;
+  clear: left;
+  width: 850px;
 }
