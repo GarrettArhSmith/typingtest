@@ -57,3 +57,21 @@ html {
 #input:focus {
     outline: none;
 }
+
+#stats {
+  text-align: center;
+}
+
+.title {
+  font-size: 2em;
+  list-style: none;
+  display: inline;
+}
+
+#errors {
+  float: left;
+}
+
+#wpm {
+  float: right;
+}

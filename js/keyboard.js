@@ -2,6 +2,12 @@ var keycode;
 var key;
 var input = document.getElementById('input');
 
+var errors = 0;
+var wpm;
+
+var correct = 0;
+
+
 
 function changeColor(color, pos) {
     $("#" + pos).css("background-color", color);
@@ -9,44 +15,65 @@ function changeColor(color, pos) {
 
 
 function keyDown() {
-        if (input.value.length > 0 && keycode == 32) {
-          if (input.value == currentWord) {
-            $("#" + wordPos).css("color", "green");
-          }else {
-            $("#" + wordPos).css("color", "red");
-          }
-          $("#input").val("");
-          wordPos++;
-          if (wordPos >= 10) {
-            for (var i = 0; i < 10; i++) {
-              $("#" + i).css("color", "");
-            }
-              wordPos = 0;
-              changeColor("", 9);
-              on = false
-              gen();
-          }
-          currentWord = text[wordPos];
-          changeColor("", wordPos - 1);
-          changeColor("lightblue", wordPos);
+    if (on && seconds > 0) {
+        if (input.value.length > 0 && input.value == " ") {
+            $("#input").val("");
+            changeColor("lightblue", wordPos);
         }
+        if (input.value.length > 0 && keycode == 32) {
+            if (input.value == currentWord) {
+                $("#" + wordPos).css("color", "green");
+                letterPos++;
+                currentLetter = currentWord.charAt(letterPos);
+                correct++;
+                console.log("Correct: " + correct);
+            } else {
+                errors++;
+                document.getElementById('errors').innerHTML = "Errors: " + errors;
+                $("#" + wordPos).css("color", "red");
+            }
+            $("#input").val("");
+            wordPos++;
+            if (wordPos >= 10) {
+                for (var i = 0; i < 10; i++) {
+                    $("#" + i).css("color", "");
+                }
+                wordPos = 0;
+                changeColor("", 9);
+                on = false
+                gen();
+            }
+            currentWord = text[wordPos];
+            letterPos = 0;
+            currentLetter = currentWord.charAt(letterPos);
+            changeColor("", wordPos - 1);
+            changeColor("lightblue", wordPos);
+        }
+    }
 }
 
 function keyUp() {
-  if (on) {
-    var letters = currentWord.substring(0, input.value.length);
+    if (on && seconds > 0) {
+        var letters = currentWord.substring(0, input.value.length);
 
-    if (letterPos == 0 && input.value == " ") {
-        $("#input").val("");
-        changeColor("lightblue", wordPos);
+        if (input.value.length > 0 && input.value == " ") {
+            $("#input").val("");
+            changeColor("lightblue", wordPos);
+        }
+
+        if (input.value == letters) {
+            changeColor("lightblue", wordPos);
+        } else if (input.value != letters && input.value != " " && input.value != "") {
+            changeColor("pink", wordPos);
+        }
+
+        if (String.fromCharCode(keycode) == currentLetter.toUpperCase() ||
+            (String.fromCharCode(keycode) == "Þ" && currentLetter.toUpperCase() == "\'")) {
+            letterPos++;
+            currentLetter = currentWord.charAt(letterPos);
+            correct++;
+        }
     }
-
-      if (input.value == letters) {
-          changeColor("lightblue", wordPos);
-      } else if (input.value != letters && input.value != " " && input.value != "") {
-          changeColor("pink", wordPos);
-      }
-  }
 }
 
 
